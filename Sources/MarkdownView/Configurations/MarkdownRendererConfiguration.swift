@@ -17,8 +17,6 @@ struct MarkdownRendererConfiguration: Equatable, AllowingModifyThroughKeyPath, S
     var linkTintColor: Color = .accentColor
     var inlineCodeTintColor: Color = .accentColor
     var blockQuoteTintColor: Color = .accentColor
-    var fontGroup: AnyMarkdownFontGroup = AnyMarkdownFontGroup(.automatic)
-    var foregroundStyleGroup: AnyMarkdownForegroundStyleGroup = AnyMarkdownForegroundStyleGroup(.automatic)
     
     var listConfiguration: MarkdownListConfiguration = MarkdownListConfiguration()
     
@@ -26,12 +24,10 @@ struct MarkdownRendererConfiguration: Equatable, AllowingModifyThroughKeyPath, S
     var allowedBlockDirectiveRenderers: Set<String> = ["math"]
 }
 
-
-
 // MARK: - SwiftUI Environment
 
-struct MarkdownRendererConfigurationKey: @preconcurrency EnvironmentKey {
-    @MainActor static var defaultValue: MarkdownRendererConfiguration = .init()
+struct MarkdownRendererConfigurationKey: EnvironmentKey {
+    static let defaultValue: MarkdownRendererConfiguration = .init()
 }
 
 extension EnvironmentValues {
