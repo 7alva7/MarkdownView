@@ -10,8 +10,7 @@ import Foundation
 /// A text differ that compares characters with Swift's standard collection difference API.
 struct StandardTextDiffer: TextDiffer {
     /// Creates a standard text differ.
-    init() {
-    }
+    init() { }
 
     /// Returns changed character ranges computed with `difference(from:)`.
     ///

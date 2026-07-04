@@ -5,7 +5,7 @@
 //  Created by Codex on 2026/7/4.
 //
 
-import Foundation
+import SwiftUI
 
 /// A type that computes changed character ranges between two text values.
 protocol TextDiffer: Sendable {
@@ -18,3 +18,17 @@ protocol TextDiffer: Sendable {
     /// - Returns: The changed character ranges in both text values.
     func difference(from sourceText: String, to targetText: String) -> TextDifference
 }
+
+// MARK: - SwiftUI Environment Value
+
+struct TextDifferEnvironmentKey: EnvironmentKey {
+    static let defaultValue: any TextDiffer = .standard
+}
+
+extension EnvironmentValues {
+    var textDiffer: any TextDiffer {
+        get { self[TextDifferEnvironmentKey.self] }
+        set { self[TextDifferEnvironmentKey.self] = newValue }
+    }
+}
+
