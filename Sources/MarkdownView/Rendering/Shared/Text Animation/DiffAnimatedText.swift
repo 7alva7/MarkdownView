@@ -73,7 +73,7 @@ struct DiffAnimatedText: View {
                 transition: transition
             )
 
-            ZStack(alignment: .leading) {
+            ZStack {
                 Text(sourceText)
                     .textRenderer(sourceRenderer)
                     .contentTransition(.identity)

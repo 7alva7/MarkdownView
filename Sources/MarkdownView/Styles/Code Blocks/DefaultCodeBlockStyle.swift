@@ -206,7 +206,8 @@ fileprivate struct DefaultMarkdownCodeBlock: View {
         } label: {
             HStack {
                 if #available(iOS 18.0, macOS 15.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *) {
-                    DiffAnimatedText(codeCopied ? "Copied" : "Copy")
+                    Text(codeCopied ? "Copied" : "Copy")
+                        .textTransition()
                 } else {
                     Text(codeCopied ? "Copied" : "Copy")
                         .contentTransition(.identity)
