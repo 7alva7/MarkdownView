@@ -54,7 +54,7 @@ extension MarkdownCodeBlockStyle where Self == DefaultCodeBlockStyle {
     }
 }
 
-struct DefaultMarkdownCodeBlock: View {
+fileprivate struct DefaultMarkdownCodeBlock: View {
     var codeBlockConfiguration: MarkdownCodeBlockStyleConfiguration
     
     var theme: CodeHighlighterTheme
